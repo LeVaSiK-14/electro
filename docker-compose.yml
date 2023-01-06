@@ -1,0 +1,40 @@
+version: "3"
+
+
+services:
+
+  postgresdb:
+    container_name: electro_db
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - my-network
+    env_file:
+      - ./.env
+
+  web:
+    container_name: electro_app
+    restart: unless-stopped
+    build:
+      context: ./
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./media/:/media
+      - ./static/:/static
+      - ./:/usr/src/app
+    entrypoint: ./entrypoint.sh
+    depends_on:
+      - postgresdb
+    networks:
+      - my-network
+
+
+volumes:
+  postgres_data:
+  media:
+  static:
+
+networks:
+  my-network:
