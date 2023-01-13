@@ -3,7 +3,7 @@ from rest_framework import serializers
 from apps.products.models import (
     Product, ProductAuto,
     ProductImage, ProductAutoImage,
-    Category,
+    Category, CategoryAuto
 )
 
 
@@ -36,4 +36,10 @@ class ProductAutoSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
+        fields = '__all__'
+
+
+class CategoryAutoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CategoryAuto
         fields = '__all__'

@@ -5,12 +5,14 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from apps.products.models import (
     ProductAuto, Product, Category,
+    CategoryAuto
 )
 
 from apps.products.serializers import(
     ProductAutoSerializer,
     ProductSerializer, 
     CategorySerializer,
+    CategoryAutoSerializer
 )
 
 
@@ -43,3 +45,7 @@ class ProductAutoView(ReadOnlyModelViewSet):
 class CategoryView(ReadOnlyModelViewSet):
     queryset = Category.objects.filter(is_active=True)
     serializer_class = CategorySerializer
+
+class CategoryAutoView(ReadOnlyModelViewSet):
+    queryset = CategoryAuto.objects.filter(is_active=True)
+    serializer_class = CategoryAutoSerializer
