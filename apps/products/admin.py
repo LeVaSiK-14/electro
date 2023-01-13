@@ -3,7 +3,7 @@ from django.contrib import admin
 from apps.products.models import (
     ProductAuto, ProductAutoImage,
     Product, ProductImage,
-    Category,
+    Category,CategoryAuto
 )
 
 
@@ -32,3 +32,4 @@ class ProductAutoAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductAuto, ProductAutoAdmin)
 admin.site.register(Category)
+admin.site.register(CategoryAuto)

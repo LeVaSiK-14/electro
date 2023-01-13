@@ -5,6 +5,8 @@ class CompanyInfo(models.Model):
     name = models.CharField(max_length=127, verbose_name='Название')
     logo = models.ImageField(upload_to='company_info/logo/image/', verbose_name='Логотип')
     about_image = models.ImageField(upload_to='company_info/about/image/', verbose_name='Картинка в блок "о нас"')
+    about_image2 = models.ImageField(upload_to='company_info/about/image/', verbose_name='Картинка в блок "о нас"')
+    about_image3 = models.ImageField(upload_to='company_info/about/image/', verbose_name='Картинка в блок "о нас"')
     text = models.TextField(verbose_name='О нас (Описание)')
     phone_number = models.CharField(max_length=127, verbose_name='Номер телефона')
     address = models.CharField(max_length=255, verbose_name='Адрес')

@@ -20,8 +20,25 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
 
+class CategoryAuto(models.Model):
+    image = models.ImageField(upload_to='categories_auto/images/', verbose_name='Основная картинка')
+    name = models.CharField(
+        max_length=127, verbose_name='Название'
+    )
+    is_active = models.BooleanField(
+        default=True, verbose_name='Активна ли категория?'
+    )
+    
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        verbose_name = 'Категория авто'
+        verbose_name_plural = 'Категории авто'
+
+
 class ProductAuto(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products_auto', verbose_name='Категория')
+    category = models.ForeignKey(CategoryAuto, on_delete=models.CASCADE, related_name='products_auto', verbose_name='Категория')
     name = models.CharField(max_length=127, verbose_name='Название')
     image = models.ImageField(upload_to='product_auto/main/images/', verbose_name='Основная картинка')
     in_stock = models.BooleanField(default=True, verbose_name='В наличии?')

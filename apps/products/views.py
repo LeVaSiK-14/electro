@@ -23,7 +23,7 @@ class ProductView(ReadOnlyModelViewSet):
         'name', 'category__name',
     )
     filterset_fields = (
-        'in_stock',
+        'in_stock', 'category'
     )
 
 
@@ -33,7 +33,7 @@ class ProductAutoView(ReadOnlyModelViewSet):
     filter_backends = (filters.SearchFilter, DjangoFilterBackend, )
 
     filterset_fields = (
-        'in_stock',
+        'in_stock', 'category'
     )
     search_fields = (
         'name', 'category__name',
