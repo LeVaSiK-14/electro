@@ -6,8 +6,8 @@ AWD = 'AWD'
 
 
 TYPE_DRIVE = (
-    ("FRONT", FRONT),
-    ("BACK", BACK),
-    ("FULL", FULL),
+    ("Передний", FRONT),
+    ("Задний", BACK),
+    ("Полный", FULL),
     ("AWD", AWD)
 )
